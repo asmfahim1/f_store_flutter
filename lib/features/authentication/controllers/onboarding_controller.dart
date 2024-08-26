@@ -1,3 +1,4 @@
+import 'package:f_store_flutter/features/authentication/screens/login/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ class OnboardingController extends GetxController {
 
   /// Update current index when page scroll
   void updatePageIndicator(index) {
-    currentPageIndex = index;
+    currentPageIndex.value = index;
   }
 
   ///Jump to the specific dot selected page
@@ -21,8 +22,8 @@ class OnboardingController extends GetxController {
 
   /// Update current index and jump to next page
   void nextPage() {
-    if(currentPageIndex.value == 2) {
-      //Get.to(LoginScreen());
+    if(currentPageIndex.value >= 2) {
+      Get.offAll(LoginScreen());
     } else {
       currentPageIndex.value = currentPageIndex.value + 1;
         pageController.jumpToPage(currentPageIndex.value);
