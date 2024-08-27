@@ -1,7 +1,9 @@
+import 'package:f_store_flutter/features/authentication/screens/signup/verify_email_screen.dart';
 import 'package:f_store_flutter/features/authentication/screens/signup/widgets/signup_terms_conditions_widget.dart';
 import 'package:f_store_flutter/utils/constants/sizes.dart';
 import 'package:f_store_flutter/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SignupFormWidget extends StatelessWidget {
@@ -99,18 +101,22 @@ class SignupFormWidget extends StatelessWidget {
           ),
 
           /// Terms and Conditions checkbox
-          SignupTermsAndConditionsWidget(),
+          const SignupTermsAndConditionsWidget(),
 
           const SizedBox(
-            height: FSizes.spaceBtwSections / 2 ,
+            height: FSizes.spaceBtwSections / 2,
           ),
 
           /// Sign up button
-          SizedBox(width: double.maxFinite,
-            child: ElevatedButton(onPressed: (){}, child: const Text(FTexts.createAccount)),)
+          SizedBox(
+            width: double.maxFinite,
+            child: ElevatedButton(
+              onPressed: () => Get.to(() => VerifyEmailScreen()),
+              child: const Text(FTexts.createAccount),
+            ),
+          )
         ],
       ),
     );
   }
 }
-
