@@ -6,11 +6,17 @@ class FImagePaths {
   static const String googleLogo = "assets/logos/google.png";
 
 
-  static const String onboardingImage1 = "assets/images/on_boarding_images/sammy-line-delivery_(1).gif";
-  static const String onboardingImage2 = "assets/images/on_boarding_images/sammy-line-delivery_(2).gif";
-  static const String onboardingImage3 = "assets/images/on_boarding_images/sammy-line-delivery_(3).gif";
+  static const String onboardingImage1 = "assets/images/sammy-line-sailor-on-mast-looking-through-telescope.gif";
+  static const String onboardingImage2 = "assets/images/sammy-line-shopping.gif";
+  static const String onboardingImage3 = "assets/images/sammy-line-man-delivery.gif";
 
 
 
+  static const String productsIllustration = "assets/images/sammy-line-workout.png";
+  static const String productsSaleIllustration = "assets/images/sammy-line-sale.png";
+  static const String staticSuccessIllustration = "assets/images/sammy-line-success.png";
+  static const String deliveredInPhoneIllustration = "assets/images/come-back-later.png";
+  static const String deliveredMailIllustration = "assets/images/sammy-line-man-receives-a-mail.png";
+  static const String verifyIllustration = "assets/images/sammy-line-travel-backpack.png";
 
 }

@@ -1,4 +1,6 @@
+import 'package:f_store_flutter/features/authentication/screens/password_configuration/forget_password_screen.dart';
 import 'package:f_store_flutter/features/authentication/screens/signup/signup_screen.dart';
+import 'package:f_store_flutter/navigation_menu.dart';
 import 'package:f_store_flutter/utils/constants/sizes.dart';
 import 'package:f_store_flutter/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +60,7 @@ class FLoginFormWidget extends StatelessWidget {
 
                 /// Forget Password
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => ForgetPasswordScreen()),
                   child: const Text(FTexts.forgotPassword),
                 ),
               ],
@@ -70,7 +72,7 @@ class FLoginFormWidget extends StatelessWidget {
             SizedBox(
               width: double.maxFinite,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.offAll(() => NavigationMenu()),
                 child: const Text(FTexts.signIn),
               ),
             ),
