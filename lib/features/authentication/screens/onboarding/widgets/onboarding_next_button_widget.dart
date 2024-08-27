@@ -4,6 +4,7 @@ import 'package:f_store_flutter/utils/constants/sizes.dart';
 import 'package:f_store_flutter/utils/device/device_utility.dart';
 import 'package:f_store_flutter/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class OnboardingNextButtonWidget extends StatelessWidget {
   const OnboardingNextButtonWidget({
@@ -24,7 +25,7 @@ class OnboardingNextButtonWidget extends StatelessWidget {
           shape: const CircleBorder(),
           backgroundColor: dark ? FColors.primaryColor : FColors.black,
         ),
-        child: Icon(Icons.arrow_forward_ios_outlined),
+        child: const Icon(Iconsax.arrow_right_3),
       ),
     );
   }

@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FLoginDividerWidget extends StatelessWidget {
+  final String dividerText;
+
   const FLoginDividerWidget({
     super.key,
+    required this.dividerText,
   });
 
   @override
@@ -24,7 +27,7 @@ class FLoginDividerWidget extends StatelessWidget {
           ),
         ),
         Text(
-          FTexts.orSignInWith.capitalize!,
+          dividerText,
           style: Theme.of(context).textTheme.labelMedium,
         ),
         Flexible(
