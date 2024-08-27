@@ -4,7 +4,9 @@ import 'package:f_store_flutter/common/widgets/login_signup/login_signup_social_
 import 'package:f_store_flutter/features/authentication/screens/login/widgets/login_form_widget.dart';
 import 'package:f_store_flutter/features/authentication/screens/login/widgets/login_header_widget.dart';
 import 'package:f_store_flutter/utils/constants/sizes.dart';
+import 'package:f_store_flutter/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,24 +14,24 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
           padding: FSpacingStyles.paddingWithAppBarHeight,
           child: Column(
             children: [
-              FLoginHeaderWidget(),
+              const FLoginHeaderWidget(),
 
               /// Form
-              FLoginFormWidget(),
+              const FLoginFormWidget(),
 
               ///Divider
-              FLoginDividerWidget(),
+              FLoginDividerWidget(dividerText: FTexts.orSignInWith.capitalize!,),
 
-              SizedBox(height: FSizes.spaceBtwItems),
+              const SizedBox(height: FSizes.spaceBtwItems),
 
               /// Footer
-              FLoginSocialButtonsWidget(),
+              const FLoginSocialButtonsWidget(),
             ],
           ),
         ),
