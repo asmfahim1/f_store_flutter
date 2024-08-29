@@ -63,30 +63,39 @@ class HomeScreen extends StatelessWidget {
 
             /// Body Section with categories
             Padding(
-              padding: EdgeInsets.all(FSizes.defaultSpace),
+              padding: const EdgeInsets.all(FSizes.defaultSpace),
               child: Column(
                 children: [
                   /// Promo Slider
-                  FPromoSlider(banners: [
+                  const FPromoSlider(banners: [
                     FImagePaths.promoBanner1,
                     FImagePaths.promoBanner2,
                     FImagePaths.promoBanner3,
                   ]),
-                  SizedBox(height: FSizes.spaceBtwSections / 2),
+                  const SizedBox(height: FSizes.spaceBtwSections / 2),
+
+                  FSectionHeading(
+                    title: 'Popular Products',
+                    showActionButton: true,
+                    onPressed: (){},
+                  ),
+                  const SizedBox(
+                    height: FSizes.spaceBtwItems,
+                  ),
 
                   /// -- Popular Products
                   GridView.builder(
                     itemCount: 4,
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     padding: EdgeInsets.zero,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: FSizes.gridViewSpacing,
                       crossAxisSpacing: FSizes.gridViewSpacing,
-                      mainAxisExtent: 288,
+                      mainAxisExtent: 270,
                     ),
-                    itemBuilder: (_, index) => FProductCardVertical(),
+                    itemBuilder: (_, index) => const FProductCardVertical(),
                   ),
 
                 ],

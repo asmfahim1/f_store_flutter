@@ -6,7 +6,7 @@ class FRoundedImage extends StatelessWidget {
   final double? height, width;
   final String imageUrl;
   final bool applyImageBorderRadius;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;
@@ -20,7 +20,7 @@ class FRoundedImage extends StatelessWidget {
     this.width,
     required this.imageUrl,
     this.applyImageBorderRadius = true,
-    this.backgroundColor = FColors.light,
+    this.backgroundColor,
     this.fit = BoxFit.cover,
     this.padding,
     this.isNetworkImage = false,
