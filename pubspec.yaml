@@ -25,6 +25,7 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1
   smooth_page_indicator: ^1.2.0+3
+  carousel_slider: ^5.0.0
 
 
 
@@ -50,10 +51,11 @@ flutter:
 
 #--------------------LOCAL ASSETS-----------------#
   assets:
-    - assets/icons/
+    - assets/icons/categories/
     - assets/logos/
     - assets/images/on_boarding_images/
     - assets/images/
+    - assets/images/banners/
 
 
 #--------------------LOCAL FONTS-----------------#
