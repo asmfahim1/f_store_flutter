@@ -1,13 +1,13 @@
 import 'package:f_store_flutter/common/widgets/appbar/appbar.dart';
-import 'package:f_store_flutter/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:f_store_flutter/common/widgets/appbar/tab_bar_widget.dart';
+import 'package:f_store_flutter/common/widgets/brands/brand_card.dart';
+import 'package:f_store_flutter/common/widgets/brands/brand_showcase.dart';
 import 'package:f_store_flutter/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:f_store_flutter/common/widgets/images/f_circular_image.dart';
 import 'package:f_store_flutter/common/widgets/layouts/grid_layout.dart';
 import 'package:f_store_flutter/common/widgets/products_cart/cart_menu_icon.dart';
-import 'package:f_store_flutter/common/widgets/texts/f_brand_title_text_with_verified_icon.dart';
 import 'package:f_store_flutter/common/widgets/texts/section_heading.dart';
+import 'package:f_store_flutter/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:f_store_flutter/utils/constants/colors.dart';
-import 'package:f_store_flutter/utils/constants/enums.dart';
 import 'package:f_store_flutter/utils/constants/image_paths.dart';
 import 'package:f_store_flutter/utils/constants/sizes.dart';
 import 'package:f_store_flutter/utils/helpers/helper_functions.dart';
@@ -18,17 +18,19 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: FAppBar(
-        title: Text(
-          'Store',
-          style: Theme.of(context).textTheme.headlineMedium,
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        appBar: FAppBar(
+          title: Text(
+            'Store',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          actions: [
+            FCartCounterIcon(onPressed: () {}),
+          ],
         ),
-        actions: [
-          FCartCounterIcon(onPressed: () {}),
-        ],
-      ),
-      body: NestedScrollView(
+        body: NestedScrollView(
           headerSliverBuilder: (_, innerBoxScrolled) {
             return [
               SliverAppBar(
@@ -38,7 +40,7 @@ class StoreScreen extends StatelessWidget {
                 backgroundColor: FHelperFunctions.isDarkMode(context)
                     ? FColors.black
                     : FColors.white,
-                expandedHeight: 430,
+                expandedHeight: 400,
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(FSizes.defaultSpace),
                   child: ListView(
@@ -65,52 +67,54 @@ class StoreScreen extends StatelessWidget {
                         height: FSizes.spaceBtwItems / 2,
                       ),
 
-                      FGridLayout(itemCount: 4, mainAxisExtent: 70, itemBuilder: (_, index){
-                        return GestureDetector(
-                          onTap: (){},
-                          child: FRoundedContainer(
-                            padding: const EdgeInsets.all(FSizes.sm),
-                            showBorder: true,
-                            backgroundColor: Colors.transparent,
-                            child: Row(
-                              children: [
-                                /// Icon
-                                Flexible(
-                                  child: FCircularImage(
-                                    image: FImagePaths.clothIcon,
-                                    isNetworkImage: false,
-                                    backgroundColor: Colors.transparent,
-                                    overlayColor: FHelperFunctions.isDarkMode(context)
-                                        ? FColors.white
-                                        : FColors.black,
-                                  ),
-                                ),
-                                const SizedBox(width: FSizes.spaceBtwItems / 2,),
-
-
-                                /// Text
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const FBrandTitleTextWithVerifiedIcon(title: 'Nike', brandTextSize: TextSizes.LARGE,),
-                                      Text('256 products', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium,),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      })
+                      FGridLayout(
+                          itemCount: 4,
+                          mainAxisExtent: 70,
+                          itemBuilder: (_, index) {
+                            return GestureDetector(
+                              onTap: () {},
+                              child: const FBrandCard(showBorder: true),
+                            );
+                          })
                     ],
                   ),
+                ),
+
+                /// Tabs -- Tutorial
+                bottom: const FTabBar(
+                  tabs: [
+                    Tab(
+                      child: Text('Sports'),
+                    ),
+                    Tab(
+                      child: Text('Furniture'),
+                    ),
+                    Tab(
+                      child: Text('Electronics'),
+                    ),
+                    Tab(
+                      child: Text('Cloths'),
+                    ),
+                    Tab(
+                      child: Text('Cosmetics'),
+                    ),
+                  ],
                 ),
               ),
             ];
           },
-          body: Container()),
+          body: TabBarView(
+            children: [
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+              FCategoryTab(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
+
